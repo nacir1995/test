@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Pi2021.Models.Comment>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = @ViewBag.result})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.commentvalue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idEvement)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.commentvalue)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.commentID , ide = ViewBag.result }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.commentID, ide = ViewBag.result })
+        </td>
+    </tr>
+}
+
+</table>
